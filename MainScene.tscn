@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://r5owm7xib2a3"]
+
+[ext_resource type="Texture2D" uid="uid://6xeb6jkgpuk" path="res://PNG/Chips/chipPurple.png" id="1_avj4a"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3pec5"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6mpgk"]
+normal = Vector2(1, 0)
+distance = 0.01
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v0dry"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_f5n2j"]
+a = Vector2(200, 11)
+b = Vector2(10, 75)
+
+[node name="MainScene" type="Node2D"]
+
+[node name="WallLeft2" type="StaticBody2D" parent="."]
+position = Vector2(20, 0)
+physics_material_override = SubResource("PhysicsMaterial_3pec5")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="WallLeft2"]
+position = Vector2(-1, 337)
+shape = SubResource("WorldBoundaryShape2D_6mpgk")
+
+[node name="ColorRect" type="ColorRect" parent="WallLeft2/CollisionShape2d"]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -18.0
+offset_top = -336.0
+offset_bottom = 813.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="RigidBody2d" type="RigidBody2D" parent="."]
+gravity_scale = 0.82
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="RigidBody2d"]
+position = Vector2(100, 25)
+shape = SubResource("CircleShape2D_v0dry")
+
+[node name="Sprite2d" type="Sprite2D" parent="RigidBody2d/CollisionShape2d"]
+position = Vector2(0, 7.62939e-06)
+scale = Vector2(0.158397, 0.158397)
+texture = ExtResource("1_avj4a")
+
+[node name="Ramp2" type="StaticBody2D" parent="."]
+position = Vector2(415, 187)
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="Ramp2"]
+position = Vector2(-97, -45)
+shape = SubResource("SegmentShape2D_f5n2j")
+
+[node name="ColorRect" type="ColorRect" parent="Ramp2/CollisionShape2d"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 182.0
+offset_top = 16.0
+offset_right = 185.0
+offset_bottom = 196.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.23918
+metadata/_edit_use_anchors_ = true
