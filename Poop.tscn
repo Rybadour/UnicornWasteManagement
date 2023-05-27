@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://bej3cehd2x0mo"]
 
-[ext_resource type="Texture2D" uid="uid://tpeqdk32puuk" path="res://RainbowPoop.png" id="1_x3jlw"]
+[ext_resource type="Texture2D" uid="uid://c4q5h2v6jtrk8" path="res://PixelPoop.png" id="1_j3nlm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4508c"]
-radius = 30.0
+radius = 25.0
 
 [node name="Poop" type="Node2D"]
 
@@ -14,6 +14,6 @@ gravity_scale = 0.82
 shape = SubResource("CircleShape2D_4508c")
 
 [node name="Sprite2d" type="Sprite2D" parent="RigidBody2d2/CollisionShape2d"]
-position = Vector2(0, 1)
-scale = Vector2(0.175, 0.175)
-texture = ExtResource("1_x3jlw")
+position = Vector2(1, -10)
+scale = Vector2(2, 2)
+texture = ExtResource("1_j3nlm")
