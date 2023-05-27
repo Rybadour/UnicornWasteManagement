@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://r5owm7xib2a3"]
+[gd_scene load_steps=5 format=3 uid="uid://r5owm7xib2a3"]
 
-[ext_resource type="Texture2D" uid="uid://6xeb6jkgpuk" path="res://PNG/Chips/chipPurple.png" id="1_avj4a"]
+[ext_resource type="Script" path="res://MainScene.gd" id="1_ifnia"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3pec5"]
 
@@ -8,13 +8,12 @@
 normal = Vector2(1, 0)
 distance = 0.01
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_v0dry"]
-
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_f5n2j"]
 a = Vector2(200, 11)
 b = Vector2(10, 75)
 
 [node name="MainScene" type="Node2D"]
+script = ExtResource("1_ifnia")
 
 [node name="WallLeft2" type="StaticBody2D" parent="."]
 position = Vector2(20, 0)
@@ -35,18 +34,6 @@ offset_bottom = 813.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="RigidBody2d" type="RigidBody2D" parent="."]
-gravity_scale = 0.82
-
-[node name="CollisionShape2d" type="CollisionShape2D" parent="RigidBody2d"]
-position = Vector2(100, 25)
-shape = SubResource("CircleShape2D_v0dry")
-
-[node name="Sprite2d" type="Sprite2D" parent="RigidBody2d/CollisionShape2d"]
-position = Vector2(0, 7.62939e-06)
-scale = Vector2(0.158397, 0.158397)
-texture = ExtResource("1_avj4a")
-
 [node name="Ramp2" type="StaticBody2D" parent="."]
 position = Vector2(415, 187)
 
@@ -66,3 +53,7 @@ grow_horizontal = 2
 grow_vertical = 2
 rotation = 1.23918
 metadata/_edit_use_anchors_ = true
+
+[node name="TestSpawnPoint" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(441, 28)
